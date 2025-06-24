@@ -1,0 +1,24 @@
+export interface BinanceTickerData {
+  e: string; // 事件類型
+  E: number; // 事件時間
+  s: string; // 交易對符號
+  c: string; // 當前價格
+  o: string; // 開盤價
+  h: string; // 最高價
+  l: string; // 最低價
+  v: string; // 交易量
+  q: string; // 交易額
+  P: string; // 24小時價格變化百分比
+  p: string; // 24小時價格變化
+  w: string; // 24小時加權平均價
+  x: string; // 上次價格
+  Q: string; // 最後交易量
+  b: string; // 最佳買入價
+  B: string; // 最佳買入量
+  a: string; // 最佳賣出價
+  A: string; // 最佳賣出量
+  C: number; // 統計關閉時間
+  F: number; // 第一筆交易ID
+  L: number; // 最後交易ID
+  n: number; // 交易筆數
+}

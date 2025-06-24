@@ -28,28 +28,3 @@ export interface BinanceTickerData {
   L: number; // Last trade Id
   n: number; // Total number of trades
 }
-
-// Individual Symbol Book Ticker Streams (@bookTicker)
-// Pushes any update to the best bid or ask's price or quantity in real-time
-export interface BinanceBookTickerData {
-  u: number; // order book updateId
-  s: string; // symbol
-  b: string; // best bid price
-  B: string; // best bid qty
-  a: string; // best ask price
-  A: string; // best ask qty
-}
-
-// Trade Streams (@trade)
-// The Trade Streams push raw trade information
-export interface BinanceTradeData {
-  e: "trade"; // Event type
-  E: number; // Event time
-  s: string; // Symbol
-  t: number; // Trade ID
-  p: string; // Price
-  q: string; // Quantity
-  T: number; // Trade time
-  m: boolean; // Is the buyer the market maker?
-  M: boolean; // Ignore
-}

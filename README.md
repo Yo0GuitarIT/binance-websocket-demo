@@ -4,9 +4,11 @@
 
 ## 🚀 在線演示
 
-[GitHub Pages 部署連結](https://yourusername.github.io/binance-websocket-demo/)
+[GitHub Pages 部署連結](https://yo0guitarit.github.io/binance-websocket-demo/)
 
-> **注意：** 請將 `yourusername` 替換為您的 GitHub 用戶名，並在 `vite.config.ts` 中更新對應的 base URL。
+![部署狀態](https://github.com/yo0guitarit/binance-websocket-demo/actions/workflows/deploy.yml/badge.svg)
+
+> **提示：** 部署後約需 2-3 分鐘才能看到最新的更改。可透過上方的狀態徽章查看最新的部署狀態。
 
 ## ✨ 功能特色
 
@@ -93,9 +95,11 @@ pnpm lint
 2. **更新專案配置**
 
    ```typescript
-   // vite.config.ts 中更新 base URL
-   base: process.env.NODE_ENV === 'production' ? '/您的專案名稱/' : '/',
+   // vite.config.ts 中的 base URL 已設定為：
+   base: "/binance-websocket-demo/",
    ```
+
+   > 如果您 Fork 此專案且重新命名，請將上述路徑改為您的專案名稱。
 
 3. **啟用 GitHub Pages**
 
@@ -115,14 +119,19 @@ pnpm lint
 
 #### 測試階段
 
-- 🧪 運行所有單元測試
+- ⚙️ 設置 pnpm 和 Node.js 20 環境
+- 📦 安裝專案依賴 (`--prefer-frozen-lockfile`)
+- 🧪 運行所有單元測試 (8 個測試)
 - 🔍 執行 ESLint 代碼檢查
 - ✅ 確保代碼品質
 
 #### 部署階段（僅在測試通過後）
 
-- 🏗️ 建置 React 應用
-- 📦 打包靜態資源
+- ⚙️ 重新設置乾淨的環境
+- 📦 重新安裝依賴確保一致性
+- 🧪 再次運行測試確保穩定性
+- 🏗️ 建置 React 應用 (`pnpm build`)
+- 📦 打包靜態資源到 `./dist`
 - 🚀 自動部署到 GitHub Pages
 
 ### 工作流程權限
@@ -135,21 +144,36 @@ GitHub Actions 需要以下權限：
 
 ### 故障排除
 
+**CI 安裝依賴失敗？**
+
+1. 確認 `pnpm-lock.yaml` 已提交到 Git
+2. 檢查是否有網路問題或套件庫無法訪問
+3. 查看 Actions 頁面的完整錯誤日誌
+
 **部署失敗？**
 
 1. 檢查 Actions 頁面的錯誤日誌
 2. 確認 GitHub Pages 已正確啟用
 3. 檢查 base URL 配置是否正確
+4. 確認 GitHub Pages 設定為 "GitHub Actions" 源
 
 **測試失敗？**
 
 1. 本地運行 `pnpm test:run` 檢查
 2. 修復失敗的測試後重新推送
+3. 確認所有測試套件都已正確安裝
 
 **建置失敗？**
 
 1. 本地運行 `pnpm build` 檢查
 2. 修復 TypeScript 或建置錯誤
+3. 檢查是否有缺少的依賴套件
+
+**頁面顯示空白或 404？**
+
+1. 等待 2-3 分鐘讓部署完成
+2. 檢查 vite.config.ts 中的 base URL 設定
+3. 確認 GitHub Pages 指向正確的分支
 
 ## 📁 專案結構
 

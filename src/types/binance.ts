@@ -1,24 +1,55 @@
+// Binance WebSocket API 型別定義
+// 官方文檔: https://binance-docs.github.io/apidocs/spot/en/#websocket-market-streams
+
+// Individual Symbol Ticker Streams (@ticker)
+// 24hr rolling window ticker statistics for a single symbol
 export interface BinanceTickerData {
-  e: string; // 事件類型
-  E: number; // 事件時間
-  s: string; // 交易對符號
-  c: string; // 當前價格
-  o: string; // 開盤價
-  h: string; // 最高價
-  l: string; // 最低價
-  v: string; // 交易量
-  q: string; // 交易額
-  P: string; // 24小時價格變化百分比
-  p: string; // 24小時價格變化
-  w: string; // 24小時加權平均價
-  x: string; // 上次價格
-  Q: string; // 最後交易量
-  b: string; // 最佳買入價
-  B: string; // 最佳買入量
-  a: string; // 最佳賣出價
-  A: string; // 最佳賣出量
-  C: number; // 統計關閉時間
-  F: number; // 第一筆交易ID
-  L: number; // 最後交易ID
-  n: number; // 交易筆數
+  e: "24hrTicker"; // Event type
+  E: number; // Event time
+  s: string; // Symbol
+  p: string; // Price change
+  P: string; // Price change percent
+  w: string; // Weighted average price
+  x: string; // First trade(F)-1 price (first trade before the 24hr rolling window)
+  c: string; // Last price
+  Q: string; // Last quantity
+  b: string; // Best bid price
+  B: string; // Best bid quantity
+  a: string; // Best ask price
+  A: string; // Best ask quantity
+  o: string; // Open price
+  h: string; // High price
+  l: string; // Low price
+  v: string; // Total traded base asset volume
+  q: string; // Total traded quote asset volume
+  O: number; // Statistics open time
+  C: number; // Statistics close time
+  F: number; // First trade ID
+  L: number; // Last trade Id
+  n: number; // Total number of trades
+}
+
+// Individual Symbol Book Ticker Streams (@bookTicker)
+// Pushes any update to the best bid or ask's price or quantity in real-time
+export interface BinanceBookTickerData {
+  u: number; // order book updateId
+  s: string; // symbol
+  b: string; // best bid price
+  B: string; // best bid qty
+  a: string; // best ask price
+  A: string; // best ask qty
+}
+
+// Trade Streams (@trade)
+// The Trade Streams push raw trade information
+export interface BinanceTradeData {
+  e: "trade"; // Event type
+  E: number; // Event time
+  s: string; // Symbol
+  t: number; // Trade ID
+  p: string; // Price
+  q: string; // Quantity
+  T: number; // Trade time
+  m: boolean; // Is the buyer the market maker?
+  M: boolean; // Ignore
 }

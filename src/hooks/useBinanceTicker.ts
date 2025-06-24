@@ -12,6 +12,21 @@ export const useBinanceTicker = ({ symbol }: UseBinanceTickerProps) => {
     "Connecting" | "Open" | "Closed" | "Error"
   >("Connecting");
 
+  // Binance WebSocket API 端點 (官方文檔)
+  // 基礎端點: wss://stream.binance.com:9443 或 wss://stream.binance.com:443
+  // 文檔: https://binance-docs.github.io/apidocs/spot/en/#websocket-market-streams
+
+  // Stream 選項:
+  // @ticker: 24小時統計數據，每1000ms更新
+  // @trade: 即時成交數據 (最快更新)
+  // @bookTicker: 最佳買賣價 (即時更新)
+  // @kline_1m: 1分鐘K線數據
+  // @miniTicker: 精簡版24小時統計
+
+  // 重要限制:
+  // - 連線24小時後自動斷開
+  // - 每秒最多5個訊息
+  // - 伺服器每20秒發送ping，須1分鐘內回應pong
   const socketUrl = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@ticker`;
 
   const { webSocket, readyState, status } = useWebSocket(socketUrl, {

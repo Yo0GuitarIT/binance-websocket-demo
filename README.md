@@ -1,209 +1,209 @@
-# Binance WebSocket 即時價格監控
+# Binance WebSocket Real-time Price Monitor
 
-這是一個使用 React + TypeScript + Vite 建立的即時加密貨幣價格監控應用程式，透過 Binance WebSocket API 即時更新價格資訊。
+A real-time cryptocurrency price monitoring application built with React + TypeScript + Vite, providing live price updates through the Binance WebSocket API.
 
-## 🚀 在線演示
+## 🚀 Live Demo
 
-[GitHub Pages 部署連結](https://yo0guitarit.github.io/binance-websocket-demo/)
+[GitHub Pages Deployment](https://yo0guitarit.github.io/binance-websocket-demo/)
 
-![部署狀態](https://github.com/yo0guitarit/binance-websocket-demo/actions/workflows/deploy.yml/badge.svg)
+![Deployment Status](https://github.com/yo0guitarit/binance-websocket-demo/actions/workflows/deploy.yml/badge.svg)
 
-> **提示：** 部署後約需 2-3 分鐘才能看到最新的更改。可透過上方的狀態徽章查看最新的部署狀態。
+> **Note:** It takes about 2-3 minutes to see the latest changes after deployment. You can check the latest deployment status through the badge above.
 
-## ✨ 功能特色
+## ✨ Features
 
-- ✅ 即時價格更新（透過 WebSocket）
-- ✅ 多個加密貨幣監控（BTC、ETH、ADA）
-- ✅ 24 小時價格變化百分比
-- ✅ 24 小時最高/最低價格
-- ✅ 24 小時交易量顯示
-- ✅ 響應式設計
-- ✅ 連線狀態指示器
-- ✅ 自動化測試覆蓋
-- ✅ CI/CD 自動部署
+- ✅ Real-time price updates (via WebSocket)
+- ✅ Multiple cryptocurrency monitoring (BTC, ETH, ADA)
+- ✅ 24-hour price change percentage
+- ✅ 24-hour high/low prices
+- ✅ 24-hour trading volume display
+- ✅ Responsive design
+- ✅ Connection status indicator
+- ✅ Automated test coverage
+- ✅ CI/CD automatic deployment
 
-## 🛠️ 技術架構
+## 🛠️ Tech Stack
 
-- **React 19** - UI 框架
-- **TypeScript** - 型別安全
-- **Vite** - 開發與建置工具
-- **use-websocket** - WebSocket 管理
-- **Binance WebSocket API** - 即時數據來源
-- **Vitest + Testing Library** - 測試框架
-- **GitHub Actions** - CI/CD 流程
-- **GitHub Pages** - 靜態網站託管
+- **React 19** - UI Framework
+- **TypeScript** - Type Safety
+- **Vite** - Development & Build Tool
+- **use-websocket** - WebSocket Management
+- **Binance WebSocket API** - Real-time Data Source
+- **Vitest + Testing Library** - Testing Framework
+- **GitHub Actions** - CI/CD Pipeline
+- **GitHub Pages** - Static Site Hosting
 
-## 🚀 快速開始
+## 🚀 Quick Start
 
-### 前置要求
+### Prerequisites
 
 - Node.js 20+
 - pnpm 8+
 
-### 安裝與運行
+### Installation & Running
 
 ```bash
-# 克隆專案
-git clone https://github.com/yourusername/binance-websocket-demo.git
+# Clone the project
+git clone https://github.com/yo0guitarit/binance-websocket-demo.git
 cd binance-websocket-demo
 
-# 安裝依賴
+# Install dependencies
 pnpm install
 
-# 啟動開發伺服器
+# Start development server
 pnpm dev
 
-# 運行測試
+# Run tests
 pnpm test:run
 
-# 建置專案
+# Build project
 pnpm build
 
-# 預覽建置結果
+# Preview build result
 pnpm preview
 ```
 
-## 🧪 測試
+## 🧪 Testing
 
-專案包含完整的單元測試覆蓋：
+The project includes comprehensive unit test coverage:
 
 ```bash
-# 運行所有測試
+# Run all tests
 pnpm test:run
 
-# 開發模式運行測試（監聽模式）
+# Run tests in development mode (watch mode)
 pnpm test
 
-# 檢查代碼品質
+# Check code quality
 pnpm lint
 ```
 
-測試覆蓋範圍：
+Test Coverage:
 
-- ✅ React 組件測試
-- ✅ 工具函數測試
-- ✅ 型別安全檢查
+- ✅ React component tests
+- ✅ Utility function tests
+- ✅ Type safety checks
 
-## 📦 GitHub Pages 自動部署
+## 📦 GitHub Pages Auto Deployment
 
-專案使用 GitHub Actions 自動化測試和部署流程。
+The project uses GitHub Actions for automated testing and deployment pipeline.
 
-### 設置步驟
+### Setup Steps
 
-1. **Fork 或克隆此專案到您的 GitHub 帳戶**
+1. **Fork or clone this project to your GitHub account**
 
-2. **更新專案配置**
+2. **Update project configuration**
 
    ```typescript
-   // vite.config.ts 中的 base URL 已設定為：
+   // The base URL in vite.config.ts is already set to:
    base: "/binance-websocket-demo/",
    ```
 
-   > 如果您 Fork 此專案且重新命名，請將上述路徑改為您的專案名稱。
+   > If you fork this project and rename it, please change the above path to your project name.
 
-3. **啟用 GitHub Pages**
+3. **Enable GitHub Pages**
 
-   - 進入專案的 Settings → Pages
-   - 在 "Source" 選擇 "GitHub Actions"
+   - Go to project Settings → Pages
+   - Select "GitHub Actions" as Source
 
-4. **推送到 main 分支**
+4. **Push to main branch**
    ```bash
    git add .
-   git commit -m "feat: 初始化專案"
+   git commit -m "feat: initialize project"
    git push origin main
    ```
 
-### CI/CD 工作流程
+### CI/CD Workflow
 
-每次推送到 `main` 分支時，GitHub Actions 會自動執行：
+Every push to the `main` branch triggers GitHub Actions to automatically execute:
 
-#### 測試階段
+#### Test Phase
 
-- ⚙️ 設置 pnpm 和 Node.js 20 環境
-- 📦 安裝專案依賴 (`--prefer-frozen-lockfile`)
-- 🧪 運行所有單元測試 (8 個測試)
-- 🔍 執行 ESLint 代碼檢查
-- ✅ 確保代碼品質
+- ⚙️ Set up pnpm and Node.js 20 environment
+- 📦 Install project dependencies (`--prefer-frozen-lockfile`)
+- 🧪 Run all unit tests (8 tests)
+- 🔍 Execute ESLint code checks
+- ✅ Ensure code quality
 
-#### 部署階段（僅在測試通過後）
+#### Deployment Phase (only after tests pass)
 
-- ⚙️ 重新設置乾淨的環境
-- 📦 重新安裝依賴確保一致性
-- 🧪 再次運行測試確保穩定性
-- 🏗️ 建置 React 應用 (`pnpm build`)
-- 📦 打包靜態資源到 `./dist`
-- 🚀 自動部署到 GitHub Pages
+- ⚙️ Re-setup clean environment
+- 📦 Reinstall dependencies for consistency
+- 🧪 Re-run tests to ensure stability
+- 🏗️ Build React application (`pnpm build`)
+- 📦 Package static assets to `./dist`
+- 🚀 Auto-deploy to GitHub Pages
 
-### 工作流程權限
+### Workflow Permissions
 
-GitHub Actions 需要以下權限：
+GitHub Actions requires the following permissions:
 
-- `contents: read` - 讀取代碼
-- `pages: write` - 寫入 Pages
-- `id-token: write` - 身份驗證
+- `contents: read` - Read code
+- `pages: write` - Write to Pages
+- `id-token: write` - Authentication
 
-### 故障排除
+### Troubleshooting
 
-**CI 安裝依賴失敗？**
+**CI dependency installation failed?**
 
-1. 確認 `pnpm-lock.yaml` 已提交到 Git
-2. 檢查是否有網路問題或套件庫無法訪問
-3. 查看 Actions 頁面的完整錯誤日誌
+1. Confirm `pnpm-lock.yaml` is committed to Git
+2. Check for network issues or inaccessible package repositories
+3. View complete error logs on Actions page
 
-**部署失敗？**
+**Deployment failed?**
 
-1. 檢查 Actions 頁面的錯誤日誌
-2. 確認 GitHub Pages 已正確啟用
-3. 檢查 base URL 配置是否正確
-4. 確認 GitHub Pages 設定為 "GitHub Actions" 源
+1. Check error logs on Actions page
+2. Confirm GitHub Pages is properly enabled
+3. Check if base URL configuration is correct
+4. Ensure GitHub Pages is set to "GitHub Actions" source
 
-**測試失敗？**
+**Tests failed?**
 
-1. 本地運行 `pnpm test:run` 檢查
-2. 修復失敗的測試後重新推送
-3. 確認所有測試套件都已正確安裝
+1. Run `pnpm test:run` locally to check
+2. Fix failed tests and push again
+3. Confirm all test suites are properly installed
 
-**建置失敗？**
+**Build failed?**
 
-1. 本地運行 `pnpm build` 檢查
-2. 修復 TypeScript 或建置錯誤
-3. 檢查是否有缺少的依賴套件
+1. Run `pnpm build` locally to check
+2. Fix TypeScript or build errors
+3. Check for missing dependency packages
 
-**頁面顯示空白或 404？**
+**Page displays blank or 404?**
 
-1. 等待 2-3 分鐘讓部署完成
-2. 檢查 vite.config.ts 中的 base URL 設定
-3. 確認 GitHub Pages 指向正確的分支
+1. Wait 2-3 minutes for deployment to complete
+2. Check base URL setting in vite.config.ts
+3. Confirm GitHub Pages points to the correct branch
 
-## 📁 專案結構
+## 📁 Project Structure
 
 ```
 src/
-├── components/              # React 組件
-│   ├── PriceDisplay.tsx    # 價格顯示組件
-│   ├── PriceDisplay.css    # 組件樣式
-│   └── __tests__/          # 組件測試
-├── hooks/                   # 自定義 Hooks
+├── components/              # React Components
+│   ├── PriceDisplay.tsx    # Price display component
+│   ├── PriceDisplay.css    # Component styles
+│   └── __tests__/          # Component tests
+├── hooks/                   # Custom Hooks
 │   └── useBinanceTicker.ts # Binance WebSocket Hook
-├── types/                   # TypeScript 型別定義
-│   └── binance.ts          # Binance API 型別
-├── test/                    # 測試設定與工具測試
-│   ├── setup.ts            # 測試環境設定
-│   └── integration.test.ts # 工具函數測試
-├── App.tsx                  # 主應用組件
-├── App.css                  # 主應用樣式
-└── main.tsx                 # 應用入口點
+├── types/                   # TypeScript Type Definitions
+│   └── binance.ts          # Binance API Types
+├── test/                    # Test setup and utility tests
+│   ├── setup.ts            # Test environment setup
+│   └── integration.test.ts # Utility function tests
+├── App.tsx                  # Main application component
+├── App.css                  # Main application styles
+└── main.tsx                 # Application entry point
 ```
 
 ## 🔌 WebSocket API
 
-使用 Binance WebSocket Stream API：
+Using Binance WebSocket Stream API:
 
-- **端點：** `wss://stream.binance.com:9443/ws/{symbol}@ticker`
-- **支援的交易對：** BTCUSDT, ETHUSDT, ADAUSDT 等
-- **官方文檔：** [Binance WebSocket API](https://binance-docs.github.io/apidocs/spot/en/#websocket-market-streams)
+- **Endpoint:** `wss://stream.binance.com:9443/ws/{symbol}@ticker`
+- **Supported Trading Pairs:** BTCUSDT, ETHUSDT, ADAUSDT, etc.
+- **Official Documentation:** [Binance WebSocket API](https://binance-docs.github.io/apidocs/spot/en/#websocket-market-streams)
 
-### API 資料格式
+### API Data Format
 
 ```typescript
 interface BinanceTickerData {
@@ -216,30 +216,30 @@ interface BinanceTickerData {
   h: string; // High price
   l: string; // Low price
   v: string; // Total traded volume
-  // ... 更多欄位
+  // ... more fields
 }
 ```
 
-## 🛡️ 開發注意事項
+## 🛡️ Development Notes
 
-- WebSocket 連線會自動處理重連
-- 所有價格數據都會即時更新
-- 支援多個交易對同時監控
-- 使用 TypeScript 確保型別安全
-- 包含完整的錯誤處理機制
-- 遵循 React 最佳實踐
+- WebSocket connections automatically handle reconnection
+- All price data updates in real-time
+- Supports monitoring multiple trading pairs simultaneously
+- Uses TypeScript for type safety
+- Includes comprehensive error handling mechanisms
+- Follows React best practices
 
-## 🔧 可用腳本
+## 🔧 Available Scripts
 
 ```bash
-pnpm dev          # 啟動開發伺服器
-pnpm build        # 建置專案
-pnpm preview      # 預覽建置結果
-pnpm test         # 運行測試（監聽模式）
-pnpm test:run     # 運行測試（單次）
-pnpm lint         # 檢查代碼品質
+pnpm dev          # Start development server
+pnpm build        # Build project
+pnpm preview      # Preview build result
+pnpm test         # Run tests (watch mode)
+pnpm test:run     # Run tests (single run)
+pnpm lint         # Check code quality
 ```
 
-## 📄 授權
+## 📄 License
 
 MIT License

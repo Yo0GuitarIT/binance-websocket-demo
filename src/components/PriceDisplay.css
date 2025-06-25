@@ -1,7 +1,7 @@
 .price-display {
   max-width: 500px;
   min-width: 350px;
-  margin: 20px auto;
+  margin: 20px;
   padding: 20px;
   border-radius: 12px;
   background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);

@@ -1,5 +1,6 @@
 .price-display {
-  max-width: 400px;
+  max-width: 500px;
+  min-width: 350px;
   margin: 20px auto;
   padding: 20px;
   border-radius: 12px;
